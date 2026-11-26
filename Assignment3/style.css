@@ -1,0 +1,64 @@
+/* Dharika.dev - Assignment 3 | Flexbox + Grid + Responsive */
+:root{--bg:#010316;--mint:#a7f3d0;--card:#f5e6d8;--ice:#f0f8ff;--text:#111;--sp:1.5rem}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.6;display:flex;flex-direction:column;min-height:100vh}
+a{text-decoration:none;color:inherit;transition:.3s}
+h1{font-size:clamp(2rem,5vw,3.2rem)}h2{font-size:clamp(1.4rem,3vw,2rem)}h3{font-size:1.2rem}
+/* Header */
+.navbar{background:var(--bg);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 5%;position:sticky;top:0;z-index:10}
+.logo{font-size:1.8rem;font-weight:700;color:var(--mint)}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.nav-links a{color:#fff;padding:.3rem .2rem;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--mint);border-color:var(--mint)}
+/* Layout */
+main{flex:1;padding:3rem 5%}
+.page-title{margin-bottom:.5rem}.sub{margin-bottom:2rem;font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--sp)}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:3px solid #000;border-radius:14px;padding:1.5rem;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 12px 24px rgba(0,0,0,.3)}
+.card .icon{font-size:2.2rem}
+.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.tag{background:#22d3ee;border-radius:20px;padding:.2rem .9rem;font-size:.85rem;transition:.3s}.tag:hover{background:var(--bg);color:#fff}
+/* Buttons */
+.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:10px;font-weight:700;border:none;cursor:pointer;background:var(--mint);color:#000;transition:transform .3s,background .3s,color .3s}
+.btn:hover{transform:scale(1.07);background:#000;color:var(--mint)}
+.btn.dark{background:#000;color:#fff}.btn.dark:hover{background:var(--mint);color:#000}
+.btns{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+/* Hero */
+.hero{background:var(--bg);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:3rem;padding:4rem 5%}
+.hero-text{flex:1}.hero h1{margin:.5rem 0}
+.hero p{max-width:540px;font-size:1.1rem}
+.role{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;animation:colors 6s infinite}
+@keyframes colors{0%{color:#a7f3d0}25%{color:#f9a8d4}50%{color:#fde68a}75%{color:#93c5fd}100%{color:#a7f3d0}}
+.hero-img{flex:0 0 auto}
+.hero-img img{width:min(320px,70vw);aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--mint);animation:float 4s ease-in-out infinite;box-shadow:0 0 30px rgba(167,243,208,.4)}
+@keyframes float{50%{transform:translateY(-14px)}}
+.fade{animation:fade 1.2s ease both}@keyframes fade{from{opacity:0;transform:translateY(20px)}}
+/* Page backgrounds */
+.p-about{background:aliceblue}.p-skills{background:#e8d9b5}.p-projects{background:#ebdc82}
+.p-ach,.p-contact{background:#ecf9de}.p-home{background:#fff}
+/* About */
+.about-wrap{display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+.about-wrap>.story{flex:2 1 320px}.facts{flex:1 1 260px}
+.facts ul,.hobby ul{list-style:none;margin-top:.8rem}.facts li,.hobby li{padding:.3rem 0}
+.hobby{margin-top:2rem}
+/* Skills */
+.bar{background:#ccc;border-radius:8px;height:10px;margin-top:.5rem;overflow:hidden}
+.bar span{display:block;height:100%;background:#0d9488;border-radius:8px;animation:grow 1.5s ease}
+@keyframes grow{from{width:0}}
+/* Contact */
+form{display:flex;flex-direction:column;gap:.6rem}
+input,textarea{padding:.7rem;border:2px solid #000;border-radius:8px;font:inherit;transition:border-color .3s,box-shadow .3s}
+input:focus,textarea:focus{outline:none;border-color:#0d9488;box-shadow:0 0 8px #0d9488}
+/* Footer */
+footer{background:var(--bg);color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.5rem 5%}
+footer b{color:var(--mint);font-size:1.4rem}footer a:hover{color:var(--mint)}
+/* Tablet */
+@media(max-width:992px){.hero{gap:2rem}.navbar{padding:1rem 4%}}
+/* Mobile: text above image, grid items in one column */
+@media(max-width:768px){
+.hero{flex-direction:column-reverse;text-align:center}.hero p{margin:auto}.btns{justify-content:center}
+.navbar{flex-direction:column}.nav-links{justify-content:center;gap:1rem}
+.grid,.grid.two{grid-template-columns:1fr}footer{flex-direction:column;text-align:center}}
+@media(max-width:480px){main{padding:2rem 4%}.nav-links{font-size:.9rem}}
